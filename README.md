@@ -5,6 +5,8 @@
   该仓库是自己在学习算法( 第4版 )的时候做的习题。其中上传了作者的一些jar包以及例题。后续学习会继续上传习题。自己编写代码用的是intellij
   
   [官方网站](https://algs4.cs.princeton.edu/home/)
+  
+  [jar包下载](https://algs4.cs.princeton.edu/code/algs4.jar)
   
   
   
