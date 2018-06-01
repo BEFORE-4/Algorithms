@@ -8,6 +8,7 @@
   
   [jar包下载](https://algs4.cs.princeton.edu/code/algs4.jar)
   
+  [一些例题代码](https://github.com/BEFORE-4/algorithms/tree/master/src/txt/chap1)
   
   
   
