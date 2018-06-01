@@ -25,6 +25,10 @@ public class Stack<Item> {
         return item;
     }
 
+    //返回栈中最近添加的元素
+    public Item peek(){
+        return first.item;
+    }
     //it was - the best - of times - - - it was - the - -
     //输出结果为
     //was best times of the was the it

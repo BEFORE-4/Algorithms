@@ -4,6 +4,7 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Stack<Item> implements Iterable<Item>{
     private Node first; //栈顶
@@ -45,20 +46,24 @@ public class Stack<Item> implements Iterable<Item>{
     }
     private class ReverseArrayIterator implements Iterator<Item> {
         private int i = N;
-        private Node node = first;
+        private Node current = first;
         @Override
         public boolean hasNext() {
-            return i > 0;
+            return current != null;
         }
 
         @Override
         public Item next() {
-            return node.next.item;
+            if (!hasNext())
+                throw new NoSuchElementException();
+            Item item = current.item;
+            current = current.next;
+            return item;
         }
 
         @Override
         public void remove() {
-
+            throw new NoSuchElementException();
         }
     }
 

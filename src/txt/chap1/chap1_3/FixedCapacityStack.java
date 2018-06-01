@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class FixedCapacityStack<Item> implements  Iterable<Item>{
     private Item[] cap;//栈
     private int N;  //栈尺寸
-    FixedCapacityStack(int cap){
+    public FixedCapacityStack(int cap){
         this.cap = (Item[])new Object[cap];
     }
     public boolean isEmpty(){
@@ -24,7 +24,7 @@ public class FixedCapacityStack<Item> implements  Iterable<Item>{
             resize( 2 * cap.length);
         cap[N++] = item;
     }
-    Item pop(){
+    public Item pop(){
         Item item = cap[--N];
         cap[N] = null;
         if (N > 0 && N == cap.length / 4){
