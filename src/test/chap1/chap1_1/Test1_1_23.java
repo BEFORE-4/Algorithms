@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Arrays;
 public class Test1_1_23 {
-    // 参数为 largeT.txt -   或者   largeT.txt +
+    // 参数为 txtFile/largeT.txt -   或者   txtFile/largeT.txt +
     public static void main(String[] args) {
         int[] whitelist = In.readInts(args[0]);
         Arrays.sort(whitelist);

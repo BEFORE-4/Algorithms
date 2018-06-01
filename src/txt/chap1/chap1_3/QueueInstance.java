@@ -19,7 +19,7 @@ public class QueueInstance {
     }
 
     public static void main(String[] args) {
-        int[] a = readInts("whitelist.txt");
+        int[] a = readInts("txtFile/whitelist.txt");
         for (int i : a) {
             System.out.println(i);
         }

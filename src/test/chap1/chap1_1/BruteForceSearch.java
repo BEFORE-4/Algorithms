@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.In;
 public class BruteForceSearch {
     //360万数据量最后一个给值9999大约6ms
     public static void main(String[] args) {
-        In in = new In("largeT.txt");
+        In in = new In("txtFile/largeT.txt");
         int[] whitelist = in.readAllInts();
         long start = System.currentTimeMillis();
         System.out.println(start);

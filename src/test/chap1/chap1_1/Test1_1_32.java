@@ -10,7 +10,7 @@ public class Test1_1_32 {
         int N = Integer.valueOf(args[0]); // 分割N段
         double l = Double.valueOf(args[1]), r = Double.valueOf(args[2]); //起始位置和结束位置
         double[] arr = new double[10000];
-        arr = In.readDoubles("Test1_1_32.txt");
+        arr = In.readDoubles("txtFile/Test1_1_32.txt");
         drawShape(arr, l, r, N);
     }
 

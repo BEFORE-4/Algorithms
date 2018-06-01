@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Test1_2_9 {
 //txt文档中的数据不能太多，否则执行会很慢。用largeT.txt执行，数据将近400w，很久没有出结果
 //将文档换成 whitelist.txt 执行，数据只有10个左右
-// java Test1_2_9 whitelist.txt
+// java Test1_2_9 txtFile/whitelist.txt
     public static void main(String[] args) {
         In in = new In(args[0]);   //参数为  whitelist.txt
         int[] whitelist = in.readAllInts(); //读取文件转换为数组

@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.In;
 
 public class Test1_2_15 {
     public static void main(String[] args) {
-        int[] result = readInts("whitelist.txt");
+        int[] result = readInts("txtFile/whitelist.txt");
         for (int index :
                 result) {
             System.out.println(index);

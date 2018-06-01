@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Test1_1_28 {
-    //参数 largeT.txt
+    //参数 txtFile/largeT.txt
     public static void main(String[] args) {
         int[] whitelist = In.readInts(args[0]);
         Arrays.sort(whitelist);

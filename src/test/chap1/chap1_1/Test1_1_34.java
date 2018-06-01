@@ -6,7 +6,7 @@ public class Test1_1_34 {
     //打印出最大和最小的数  只需要两个变量记录即可
     double getMin(){
         double min = 0;
-        double[] nums = In.readDoubles("largeT.txt");
+        double[] nums = In.readDoubles("txtFile/largeT.txt");
         for (int i = 0; i < nums.length; i++) {
             if (min > nums[i]){
                 min = nums[i];
