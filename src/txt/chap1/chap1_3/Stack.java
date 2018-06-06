@@ -36,7 +36,10 @@ public class Stack<Item> implements Iterable<Item>{
         N--;
         return item;
     }
-
+    //返回栈中最近添加的元素
+    public Item peek(){
+        return first.item;
+    }
     /**
      * 迭代
      * @return
