@@ -6,6 +6,7 @@ import txt.chap1.chap1_3.Stack;
 //  后序表达式 23*21-/341-*+
 /**
  * 中序表达式转为后序表达式
+ * Test1_3_10
  */
 public class InfixToPostfix {
     public static void main(String[] args) {
@@ -24,12 +25,12 @@ public class InfixToPostfix {
             if (str.matches("\\d")){    //如果是数字，直接输出
                 nums.push(str);
                 equation += str;
-                System.out.println(equation);   //每次有输出打印变化
+//                System.out.println(equation);   //每次有输出打印变化
             }else if (str.matches("\\)")){  //如果是 ) ，则一直弹出栈内的运算符，直到遇到 (
                 while (!operats.peek().equals("(")){
                     equation += operats.pop();
                 }
-                System.out.println(equation);   //每次有输出打印变化
+//                System.out.println(equation);   //每次有输出打印变化
                 operats.pop();  //将 ( 从栈中弹出
             }else{
                 if (operats.isEmpty()){ //操作符栈为空，直接压入
@@ -42,7 +43,7 @@ public class InfixToPostfix {
                             (!higherThan(operats.peek(), str)) && (!"(".equals(operats.peek()))){
                         equation += operats.pop();
                     }
-                    System.out.println(equation);   //每次有输出打印变化
+//                    System.out.println(equation);   //每次有输出打印变化
                     operats.push(str);  //将操作符压入栈
                 }
 

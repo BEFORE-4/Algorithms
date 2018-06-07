@@ -4,16 +4,17 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Queue<Item> implements Iterable<Item>{
-    private Node first; //第一个节点
-    private Node last;  //最后一个节点
+    private Node<Item> first; //第一个节点
+    private Node<Item> last;  //最后一个节点
     private int N;  //数量
 
 
-    private class Node{
-         Item item;
-         Node next;
+    private class Node<T>{
+         private T item;
+         private Node<T> next;
     }
     public boolean isEmpty(){
         return N == 0;
@@ -23,7 +24,7 @@ public class Queue<Item> implements Iterable<Item>{
     }
     public void enqueue(Item item){
         Node oldLast = last;
-        last = new Node();
+        last = new Node<>();
         last.item = item;
         if (isEmpty())
             first = last;
@@ -32,32 +33,42 @@ public class Queue<Item> implements Iterable<Item>{
         N++;
     }
     public Item dequeue(){
+        if (isEmpty()) throw new NoSuchElementException("Queue underflow");
         Item item = first.item;
         first = first.next;
         N--;
+        if (isEmpty()) last = null;   // to avoid loitering
         return item;
     }
 
     @Override
     public Iterator<Item> iterator() {
-        return new ReverseArrayIterator();
+        return new ListIterator<>(first);
     }
-    private class ReverseArrayIterator implements Iterator<Item> {
-        private int i = N;
-        private Node node = first;
+    private class ListIterator<T> implements Iterator<T> {
+        private Node<T> current;
+
+        public ListIterator(Node<T> first) {
+            current = first;
+        }
+
         @Override
         public boolean hasNext() {
-            return i > 0;
+            return current != null;
         }
 
         @Override
-        public Item next() {
-            return node.next.item;
+        public T next() {
+            if(!hasNext())
+                throw new NoSuchElementException();
+            T item = current.item;
+            current = current.next;
+            return item;
         }
 
         @Override
-        public void remove() {
-
+        public void remove(){
+            throw new UnsupportedOperationException();
         }
     }
 
