@@ -33,12 +33,13 @@ public class Test1_3_24<T> {
         queue.remove(queue, "b");   //1.3.26
         queue.max(node1);*/
 
-       /* //1.3.27
+        //1.3.27
         Test1_3_24<Integer> q = new Test1_3_24<>();
         q.enqueue(1);
         q.enqueue(7);
         q.enqueue(3);
-        StdOut.println(q.max(q.first));*/
+        StdOut.println(q.max(q.first));
+        StdOut.println(q.maxRecursive(q.first));
     }
 
     /**
@@ -148,6 +149,21 @@ public class Test1_3_24<T> {
                 max = node.item;
             }
         }
+        return max;
+    }
+
+    /**
+     * Test1_3_28
+     * 递归查找到最大值
+     * @param node  第一个节点
+     * @return  最大的值
+     */
+    private int maxRecursive(Node<Integer> node){
+        int max = 0;
+        if (node.next == null)
+            max = node.item;
+        else if(maxRecursive(node.next) > max)
+            max = node.next.item;
         return max;
     }
 }
