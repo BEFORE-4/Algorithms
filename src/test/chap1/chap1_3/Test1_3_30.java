@@ -1,28 +1,17 @@
 package test.chap1.chap1_3;
 
-import edu.princeton.cs.algs4.StdOut;
-
 public class Test1_3_30<T> {
 
     public static void main(String[] args) {
         Test1_3_30<String> queue = new Test1_3_30<>();
-        for (int i = 0; i < 220000000; i++){
-            String a = "a";
+        for (int i = 0; i < 4; i++){
+            String a = "a" + i;
             queue.enqueue(a);
         }
         Node<String> first = queue.first;
-        long start = System.currentTimeMillis();
-        StdOut.println(start);
-        Node<String> newFirst = queue.reverse(first);
-        long end = System.currentTimeMillis();
-        StdOut.println(end);
-        StdOut.println(end - start);
-        start = System.currentTimeMillis();
-        StdOut.println(start);
+        //两个方法只能调用一个。因为反转会将链表结构破坏
+//        Node<String> newFirst = queue.reverse(first);
         Node<String> newFirst1 = queue.reverse1(first);
-        end = System.currentTimeMillis();
-        StdOut.println(end);
-        StdOut.println(end - start);
     }
 
     /**
