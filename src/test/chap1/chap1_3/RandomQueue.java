@@ -30,7 +30,7 @@ public class RandomQueue<Item> implements Iterable<Item>{
 
     private void resize(int capacity){
         Item[] result = (Item[]) new Object[capacity];
-        System.arraycopy(q, 0, result, 0, q.length);//数组复制
+        System.arraycopy(q, 0, result, 0, N);//数组复制，复制N个
         /*for (int i = 0; i < N; i++) {
             result[i] = q[i];
         }*/
@@ -61,22 +61,31 @@ public class RandomQueue<Item> implements Iterable<Item>{
     }
     @Override
     public Iterator<Item> iterator() {
-        return new randomIterator();
+        return new randomIterator(q, N);
     }
     class randomIterator implements Iterator<Item>{
         private int index = 0;
+        private int num;
+        private Item[] items;
+        randomIterator(Item[] item, int N){
+            this.items = item;
+            this.num = N;
+        }
         @Override
         public boolean hasNext() {
-            return index < N;
+            return num > 0;
         }
 
         @Override
         public Item next() {
             if (!hasNext())
                 throw new NoSuchElementException();
-            Item item = q[index];
-            index++;
-            return item;
+            int rand = StdRandom.uniform(num);
+            Item tmp = items[rand];
+            items[rand] = items[num - 1];
+            items[num - 1] = tmp;
+            num--;
+            return tmp;
         }
 
         @Override

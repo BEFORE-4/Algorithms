@@ -6,6 +6,15 @@ public class Test1_3_35 {
     public static void main(String[] args) {
         RandomQueue<Card> cards = getCards();   //所有牌
         RandomQueue<Card>[] persons = new RandomQueue[4];//四个人
+        /*
+        //测试随机迭代器
+        for (int i = 0; i < 3; i++) {
+            StdOut.println("==========" + i + "================");
+            for (Card card :
+                    cards) {
+                StdOut.println(card);
+            }
+        }*/
         for (int i = 0; i < persons.length; i++) {
             persons[i] = new RandomQueue<>();
             for (int j = 0; j < 13; j++) {
