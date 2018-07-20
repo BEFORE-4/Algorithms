@@ -24,11 +24,32 @@ public class Stack<Item> implements Iterable<Item>{
         first = new Node<>();
         first.item = item;
         first.next = oldFirst;
+        size++;
     }
     public Item pop(){
         Item item = first.item;
         first = first.next;
+        size--;
         return item;
+    }
+
+    /**
+     * 增加构造函数，复制栈
+     */
+    int size = 0;//尺寸
+    Stack(){
+        super();
+    }
+    //FILO特性，需要临时变量转换下顺序
+    Stack(Stack<Item> q){
+        Stack<Item> tmp = new Stack<>();
+        for (Item obj : q) {
+            tmp.push(obj);
+        }
+        for (Item obj : tmp) {
+            push(obj);
+        }
+        this.size = q.size;
     }
 
     //返回栈中最近添加的元素
