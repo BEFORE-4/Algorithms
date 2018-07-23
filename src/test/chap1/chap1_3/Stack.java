@@ -57,6 +57,13 @@ public class Stack<Item> implements Iterable<Item>{
         return first.item;
     }
 
+    //破坏性连接两个栈对象 Test1_3_47
+    public void catenation(Stack<Item> q){
+        int size = q.size;
+        for (int i = 0; i < size; i++) {
+            push(q.pop());
+        }
+    }
     public String toString(){
         StringBuilder s = new StringBuilder();
         for (Item item :
