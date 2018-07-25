@@ -3,6 +3,7 @@ package test.chap1.chap1_3;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
@@ -13,8 +14,9 @@ import java.util.NoSuchElementException;
  */
 public class Stack<Item> implements Iterable<Item>{
     private Node<Item> first;//栈顶元素
-
-
+    //Test1_3_50添加异常需要的变量
+    private int pushCount;
+    private int popCount;
     private class Node<Item>{
         Item item;
         Node<Item> next;
@@ -25,11 +27,13 @@ public class Stack<Item> implements Iterable<Item>{
         first.item = item;
         first.next = oldFirst;
         size++;
+        pushCount++;
     }
     public Item pop(){
         Item item = first.item;
         first = first.next;
         size--;
+        popCount++;
         return item;
     }
 
@@ -94,16 +98,26 @@ public class Stack<Item> implements Iterable<Item>{
     }
     @Override
     public Iterator<Item> iterator() {
-        return new ListIterator<>(first);
+        return new ListIterator<>(first ,pushCount, popCount, this);
     }
     class ListIterator<T> implements Iterator{
         private Node<Item> current;
-
-        ListIterator(Node<Item> item){
+        //Test1_3_50添加异常需要的变量
+        private int pushCount;
+        private int popCount;
+        private Stack stack;
+        ListIterator(Node<Item> item,int pushCount, int popCount,Stack stack){
             current = item;
+            this.pushCount = pushCount;
+            this.popCount = popCount;
+            this.stack = stack;
         }
         @Override
         public boolean hasNext() {
+            //Test1_3_50添加异常
+            if (stack.popCount != popCount || stack.pushCount != pushCount){
+                throw new ConcurrentModificationException("迭代器中修改异常");
+            }
             return current != null;
         }
 
@@ -111,6 +125,10 @@ public class Stack<Item> implements Iterable<Item>{
         public Item next() {
             if (!hasNext()){
                 throw new NoSuchElementException();
+            }
+            //Test1_3_50添加异常
+            if (stack.popCount != popCount || stack.pushCount != pushCount){
+                throw new ConcurrentModificationException("迭代器中修改异常");
             }
             Item item = current.item;
             current = current.next;
