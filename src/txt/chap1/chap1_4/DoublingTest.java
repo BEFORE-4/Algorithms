@@ -2,6 +2,7 @@ package txt.chap1.chap1_4;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
+import test.chap1.chap1_4.Test1_4_3;
 
 /**
  * 自己电脑运行结果为
@@ -28,9 +29,16 @@ public class DoublingTest {
         return timer.elapsedTime();
     }
     public static void main(String[] args) {
-        for (int N = 250; true; N += N){
+        int[] n = new int[6];
+        double[] times = new double[6];
+        int i = 0;
+        for (int N = 250; N < 9000; N += N){
             double time = timeTrial(N);
             StdOut.printf("%7d %5.1f\n", N, time);
+            n[i] = N;
+            times[i++] = time;
         }
+//按理来说，画图方法并不会影响上面的执行效率。但实际上在用drawLog画图时，上面代码执行时间变慢
+        Test1_4_3.drawLog(n, times);//画图
     }
 }
