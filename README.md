@@ -22,5 +22,6 @@
 * [1.1节 基础编程模型](https://github.com/BEFORE-4/algorithms/tree/master/src/test/chap1/chap1_1 "1.1节练习")
 * [1.2节 数据抽象](https://github.com/BEFORE-4/algorithms/tree/master/src/test/chap1/chap1_2 "1.2节练习")
 * [1.3节 背包、队列和栈](https://github.com/BEFORE-4/algorithms/tree/master/src/test/chap1/chap1_3 "1.3节练习")
+* [1.3节 算法分析](https://github.com/BEFORE-4/algorithms/tree/master/src/test/chap1/chap1_4 "1.4节练习")
 
-已更新到 1.3.1
+已更新到 1.4
